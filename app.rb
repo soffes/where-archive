@@ -1,6 +1,10 @@
+require 'sinatra'
+require 'sinatra/content_for'
 require 'json'
 
 class Application < Sinatra::Base
+  helpers Sinatra::ContentFor
+
   get '/' do
     erb :index
   end

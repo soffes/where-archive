@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charSet="utf-8">
+  <meta name="viewport" content="initial-scale=1.0,width=device-width">
   <title>Where is Sam</title>
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css" rel="stylesheet" />
-  <style>
-    a.mapboxgl-ctrl-logo, div.mapboxgl-ctrl-attrib { display: none; }
-  </style>
+  <%= yield_content :head %>
 </head>
 <body>
   <%= yield %>
