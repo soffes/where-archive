@@ -21,6 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   puma
   shotgun
   sinatra

@@ -6,3 +6,7 @@ gem 'puma'
 group :development do
   gem 'shotgun'
 end
+
+group :production do
+  gem 'bundler'
+end
