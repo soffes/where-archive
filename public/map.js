@@ -2,27 +2,44 @@ mapboxgl.accessToken = "pk.eyJ1Ijoic29mZmVzIiwiYSI6IjFZZngwVDQifQ.2SwdR3e8-p_K50
 var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/streets-v11",
-  center: [-121.546596, 37.186381],
-  zoom: 15
+  center: [-121.52214179909288, 37.178702023907505],
+  zoom: 13.5
 });
 
 map.on("load", function () {
-  map.loadImage("marker.png", function(error, image) {
+  map.loadImage("/assets/pin@2x.png", function(error, image) {
     if (error) throw error;
-    map.addImage("custom-marker", image);
+    map.addImage("custom-marker", image, { pixelRatio: 2 });
   });
 
-  map.addSource("markers", {
+  map.addSource("route", {
     type: "geojson",
-    data: "./data.json"
+    data: "/route.json"
   });
-
-  // map.getSource("markers").setData("/data.json");
 
   map.addLayer({
-    "id": "markers",
+    "id": "route",
+    "type": "line",
+    "source": "route",
+    "layout": {
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    "paint": {
+      "line-color": "#6506F1",
+      "line-width": 4
+    }
+  });
+
+  map.addSource("points", {
+    type: "geojson",
+    data: "/points.json"
+  });
+
+  map.addLayer({
+    "id": "points",
     "type": "symbol",
-    "source": "markers",
+    "source": "points",
     "layout": {
       "icon-image": "custom-marker"
     }
